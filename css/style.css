@@ -1,0 +1,29 @@
+:root {
+    --main-bg-color: rgb(80, 180, 180);
+    --main-font: "Syne Mono", monospace;
+}
+
+body {
+    font-family: "Syne Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--main-bg-color);
+}
+
+.zine-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.zine {
+    background-color: white;
+    padding: 40px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.cover {
+    width: 350px;
+    height: auto;
+}
