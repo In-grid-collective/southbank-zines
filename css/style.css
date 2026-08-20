@@ -9,6 +9,12 @@ body {
     font-style: normal;
     background-color: var(--main-bg-color);
 }
+header {
+    text-align: center;
+}
+footer {
+    text-align: center;
+}
 
 .zine-list {
     display: flex;
