@@ -1,23 +1,41 @@
 :root {
     --main-bg-color: rgb(80, 180, 180);
-    --main-font: "Syne Mono", monospace;
+    --main-font: "mplus", sans-serif;
+    --title-font: "Anthony", "Syne Mono", garamond;
+}
+
+@font-face {
+    font-family: "Anthony";
+    src:
+        local("Anthony"),
+        url("../assets/fonts/anthony-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "mplus";
+    src:
+        local("mplus"),
+        url("../assets/fonts/mplus-1m-regular.woff") format("woff");
 }
 
 body {
-    font-family: "Syne Mono", monospace;
+    font-family: var(--main-font);
     font-weight: 400;
     font-style: normal;
     background-color: var(--main-bg-color);
 }
+
 header {
+    font-family: var(--title-font);
     text-align: center;
 }
+
 footer {
     text-align: center;
 }
 
 .zine-list {
-    display: flex;
+    display: flex-column;
     flex-wrap: wrap;
     justify-content: center;
 }
