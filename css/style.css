@@ -1,5 +1,10 @@
 :root {
-    --main-bg-color: rgb(80, 180, 180);
+    --main-bg-color: black;
+    --block-bg-color: rgb(10, 10, 10);
+    --block-border-color: grey;
+    --block-shadow-color: blue;
+    --main-color-green: green;
+    --main-color-purple: purple;
     --main-font: "mplus", sans-serif;
     --title-font: "Anthony", "Syne Mono", garamond;
 }
@@ -22,18 +27,28 @@ body {
     font-family: var(--main-font);
     font-weight: 400;
     font-style: normal;
+    color: white;
     background-color: var(--main-bg-color);
 }
 
 header {
-    font-family: var(--title-font);
     text-align: center;
 }
 
 footer {
     text-align: center;
+    font-size: 0.8rem;
+    margin: 40px 40px;
 }
 
+h1,
+h2,
+h3 {
+    font-family: var(--title-font);
+}
+p {
+    font-family: var(--main-font);
+}
 .zine-list {
     display: flex-column;
     flex-wrap: wrap;
@@ -41,13 +56,15 @@ footer {
 }
 
 .zine {
-    background-color: white;
+    background-color: var(--block-bg-color);
     padding: 40px;
     margin: 10px;
-    border-radius: 10px;
+    border-bottom: 1px dashed var(--block-border-color);
 }
 
 .cover {
     width: 300px;
     height: auto;
+    border-radius: 5px;
+    box-shadow: 10px 4px 10px var(--block-shadow-color);
 }
