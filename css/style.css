@@ -1,13 +1,16 @@
 :root {
-    --main-bg-color: black;
-    --block-bg-color: rgb(10, 10, 10);
-    --block-border-color: grey;
-    --block-shadow-color: blue;
-    --main-color-green: green;
-    --main-color-purple: purple;
+    --main-bg-color: #111111;
+    --main-color-white: #faf9f6;
+    --main-color-green: #00ff00;
+    --main-color-purple: #5a67d8;
     --main-font: "mplus", sans-serif;
     --title-font: "Anthony", "Syne Mono", garamond;
 }
+
+/*Background: #111111*/
+/*Purple: #5a67d8*/
+/*Green: #00ff00*/
+/*White: #FAF9F6*/
 
 @font-face {
     font-family: "Anthony";
@@ -56,15 +59,15 @@ p {
 }
 
 .zine {
-    background-color: var(--block-bg-color);
+    background-color: var(--main-bg-color);
     padding: 40px;
     margin: 10px;
-    border-bottom: 1px dashed var(--block-border-color);
+    border-bottom: 1px dashed var(--main-color-white);
 }
 
 .cover {
     width: 300px;
     height: auto;
     border-radius: 5px;
-    box-shadow: 10px 4px 10px var(--block-shadow-color);
+    box-shadow: 10px 4px 10px var(--main-color-purple);
 }
