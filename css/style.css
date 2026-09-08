@@ -52,6 +52,7 @@ h3 {
 p {
     font-family: var(--main-font);
 }
+
 .zine-list {
     display: flex-column;
     flex-wrap: wrap;
