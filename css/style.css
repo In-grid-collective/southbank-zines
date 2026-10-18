@@ -152,10 +152,20 @@ img {
 .carousel {
     position: relative;
     --arrow-size: 2.75rem;
-    --gutter: 6rem; /* space each side of the photo for the arrows */
-    max-width: 800px;
-    aspect-ratio: 4 / 3;
-    margin: 40px auto;
+    /* space each side of the photo for the arrows (desktop only); needs a unit,
+       a bare 0 makes calc(100% - 2 * var(--gutter)) invalid */
+    --gutter: 0px;
+    --arrow-offset: 8px; /* arrow distance from the carousel edge */
+    /* full screen width, breaking out of .wrap's side margins */
+    width: 100vw;
+    /* bottom margin leaves room for the dots row under the frame */
+    margin: 40px calc(50% - 50vw) 80px;
+    /* 2:3 is the tallest photo shape, so every photo fills the screen width
+       (landscape ones get dark bars above and below) */
+    aspect-ratio: 2 / 3;
+    /* never taller than the screen, so the whole photo is always in view */
+    max-height: 90vh;
+    max-height: 90svh;
 }
 
 .carousel .slides {
@@ -191,7 +201,6 @@ img {
     height: 100%;
     object-fit: contain;
     background-color: var(--main-bg-color);
-    border-radius: 15px;
 }
 
 .carousel .snapper {
@@ -223,8 +232,9 @@ img {
     animation-name: none;
 }
 
-/* visible arrows are drawn once in the carousel's gutters; clicks pass
-   through to the invisible prev/next links of whichever slide is showing */
+/* visible arrows are drawn once on the carousel (over the photo on mobile,
+   in the gutters on desktop); clicks pass through to the invisible prev/next
+   links of whichever slide is showing */
 .carousel::before,
 .carousel::after,
 .carousel .prev,
@@ -242,13 +252,13 @@ img {
 .carousel::before,
 .carousel .prev {
     /*left: calc((var(--gutter) - var(--arrow-size)) / 2);*/
-    left: 0;
+    left: var(--arrow-offset);
 }
 
 .carousel::after,
 .carousel .next {
     /*right: calc((var(--gutter) - var(--arrow-size)) / 2);*/
-    right: 0;
+    right: var(--arrow-offset);
 }
 
 .carousel::before,
@@ -258,6 +268,7 @@ img {
     place-items: center;
     box-sizing: border-box;
     /*border: 1px dotted var(--main-color-green);*/
+    background-color: rgba(17, 17, 17, 0.6); /* keeps arrows readable over photos */
     color: var(--main-color-green);
     font-family: var(--main-font);
     font-size: 1.6rem;
@@ -277,10 +288,12 @@ img {
     background-color: var(--main-color-purple);
 }
 
+/* dots sit in a row just below the frame, so they stay in the same place
+   whatever the shape of the photo */
 .carousel .dots {
     position: absolute;
+    top: calc(100% + 12px);
     right: 0;
-    bottom: 12px;
     left: 0;
     display: flex;
     justify-content: center;
@@ -326,5 +339,20 @@ img {
         flex: 1 2 auto;
         min-width: 0;
         padding-left: 40px;
+    }
+    .carousel {
+        --gutter: 6rem;
+        --arrow-offset: 0;
+        width: auto;
+        max-width: 800px;
+        margin: 40px auto 80px;
+        aspect-ratio: 4 / 3;
+    }
+    .carousel .slide img {
+        border-radius: 15px;
+    }
+    .carousel::before,
+    .carousel::after {
+        background-color: transparent;
     }
 }
