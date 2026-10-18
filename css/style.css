@@ -168,6 +168,16 @@ img {
     max-height: 90svh;
 }
 
+/* no blue tap flash (Android) or focus ring (Safari) when a slide is tapped;
+   keyboard focus is still shown on the arrows below */
+.carousel,
+.carousel * {
+    -webkit-tap-highlight-color: transparent;
+}
+.carousel .slide:focus {
+    outline: none;
+}
+
 .carousel .slides {
     position: absolute;
     inset: 0;
@@ -284,7 +294,9 @@ img {
 }
 
 .carousel:has(.prev:hover)::before,
-.carousel:has(.next:hover)::after {
+.carousel:has(.next:hover)::after,
+.carousel:has(.prev:focus-visible)::before,
+.carousel:has(.next:focus-visible)::after {
     background-color: var(--main-color-purple);
 }
 
