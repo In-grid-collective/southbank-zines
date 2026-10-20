@@ -50,7 +50,8 @@ footer {
     font-size: 0.875rem;
     margin: 20px 20px;
 }
-footer a {
+
+a {
     color: var(--main-color-green);
 }
 
@@ -283,7 +284,12 @@ img {
     place-items: center;
     box-sizing: border-box;
     /*border: 1px dotted var(--main-color-green);*/
-    background-color: rgba(17, 17, 17, 0.6); /* keeps arrows readable over photos */
+    background-color: rgba(
+        17,
+        17,
+        17,
+        0.6
+    ); /* keeps arrows readable over photos */
     color: var(--main-color-green);
     font-family: var(--main-font);
     font-size: 1.6rem;
